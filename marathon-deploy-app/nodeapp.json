@@ -1,0 +1,29 @@
+{
+ "id": "nodeapp",
+ "cmd": "nodeapp/node-v6.9.1-linux-x64/bin/node nodeapp/app.js $PORT0",
+ "cpus": 1,
+ "mem": 1024,
+ "disk": 0,
+ "instances": 2,
+ "healthChecks": [
+   {
+     "path": "/health",
+     "protocol": "HTTP",
+     "gracePeriodSeconds": 300,
+     "intervalSeconds": 60,
+     "timeoutSeconds": 20,
+     "maxConsecutiveFailures": 3,
+     "ignoreHttp1xx": false
+   }
+ ],
+ "portDefinitions": [
+   {
+     "port": 0,
+     "protocol": "tcp",
+     "labels": {}
+   }
+ ],
+ "uris": [
+   "https://your-s3-URL-bucket/nodeapp/nodeapp.zip"
+ ]
+}
